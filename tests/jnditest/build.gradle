@@ -14,14 +14,14 @@ repositories {
   maven {
     name = 'github'
     //credentials(PasswordCredentials)
-    url = uri('https://maven.pkg.github.com/nccgroup/log4j-jndi-be-gone')
+    url = uri('https://maven.pkg.github.com/AbsaOSS/log4j-jndi-be-gone')
   }
 
   mavenCentral()
 }
 
 dependencies {
-  implementation group: 'trust.nccgroup', name: 'log4j-jndi-be-gone', version: '1.0.0'
+  implementation group: 'za.co.absa.trust.nccgroup', name: 'log4j-jndi-be-gone', version: '1.0.1-absa'
 
   if (project.hasProperty('java6')) {
     testImplementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.3'

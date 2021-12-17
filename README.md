@@ -14,19 +14,19 @@ It does three things:
 
 # Usage
 
-Add `-javaagent:path/to/log4j-jndi-be-gone-1.0.0-standalone.jar` to your `java` commands.
+Add `-javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar` to your `java` commands.
 
 ***Note:*** If you already have Byte Buddy in the classpath, try using
-`log4j-jndi-be-gone-1.0.0.jar`.
+`log4j-jndi-be-gone-1.0.1-absa.jar`.
 
 ```
-$ java -javaagent:path/to/log4j-jndi-be-gone-1.0.0-standalone.jar -jar path/to/some.jar
+$ java -javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar -jar path/to/some.jar
 ```
 
 # Obtaining log4j-jndi-be-gone
 
-You can build the JAR with `./gradlew` (`build/libs/log4j-jndi-be-gone-1.0.0(-standalone).jar`)
-or get it from the [releases page](https://github.com/nccgroup/log4j-jndi-be-gone/releases).
+You can build the JAR with `./gradlew` (`build/libs/log4j-jndi-be-gone-1.0.1-absa(-standalone).jar`)
+or get it from the [releases page](https://github.com/AbsaOSS/log4j-jndi-be-gone/releases).
 
 # Compatibility
 
@@ -37,9 +37,9 @@ The log4j-jndi-be-gone agent JAR supports Java 6-17+.
 * log4j-jndi-be-gone will not work if the log4j library has been obfuscated or
 if its class packages/names have been modified.
 
-* `log4j-jndi-be-gone-1.0.0-standalone.jar` bundles in Byte Buddy. If you
+* `log4j-jndi-be-gone-1.0.1-absa-standalone.jar` bundles in Byte Buddy. If you
   already use Byte Buddy, you may run into issues with it. Try
-  `log4j-jndi-be-gone-1.0.0.jar` instead, though note that log4j-jndi-be-gone
+  `log4j-jndi-be-gone-1.0.1-absa.jar` instead, though note that log4j-jndi-be-gone
   expects Byte Buddy 1.12.x.
 
 # Example

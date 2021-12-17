@@ -4,8 +4,8 @@ plugins {
   id 'maven-publish'
 }
 
-group = 'trust.nccgroup'
-version = '1.0.0'
+group = 'za.co.absa.trust.nccgroup'
+version = '1.0.1-absa'
 
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
@@ -75,7 +75,7 @@ publishing {
             pom {
                 name = 'log4j-jndi-be-gone'
                 description = 
-                url = 'https://github.com/nccgroup/log4j-jndi-be-gone'
+                url = 'https://github.com/AbsaOSS/log4j-jndi-be-gone'
                 licenses {
                     license {
                         name = 'The Apache License, Version 2.0'
@@ -88,11 +88,21 @@ publishing {
                         name = 'Jeff Dileo'
                         email = 'jeff.dileo@nccgroup.com'
                     }
+                    developer {
+                        id = 'cerveada'
+                        name = 'Adam Cervenka'
+                        email = 'adam.cervenka@absa.africa'
+                    }
+                    developer {
+                        id = 'wajda'
+                        name = 'Alex Vayda'
+                        email = 'oleksandr.vayda@gmail.com'
+                    }
                 }
                 scm {
-                    url = 'https://github.com/nccgroup/log4j-jndi-be-gone'
-                    connection = 'scm:git:git://github.com/nccgroup/log4j-jndi-be-gone.git'
-                    developerConnection = 'scm:git:ssh:git@github.com:nccgroup/log4j-jndi-be-gone.git'
+                    url = 'https://github.com/AbsaOSS/log4j-jndi-be-gone'
+                    connection = 'scm:git:git://github.com/AbsaOSS/log4j-jndi-be-gone.git'
+                    developerConnection = 'scm:git:ssh:git@github.com:AbsaOSS/log4j-jndi-be-gone.git'
                 }
             }
         }
