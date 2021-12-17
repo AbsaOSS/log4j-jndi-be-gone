@@ -41,7 +41,7 @@ The agent could also be enabled for all Java processes system-wide. For example,
 
 ```shell
 #!/bin/bash 
-$(dirname "$0")/java.original "--javaagent:path/to/log4j-jndi-be-gone-1.0.0-standalone.jar" "$@"
+$(dirname "$0")/java.original "--javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar" "$@"
 ```
 
 all new Java processes will automatically be guarded by the agent.  
@@ -51,7 +51,7 @@ all new Java processes will automatically be guarded by the agent.
 Detection of *shaded log4j* is disabled by default, but it can be enabled like this:
 
 ```
-$ java -javaagent:path/to/log4j-jndi-be-gone-1.0.0-standalone.jar=classSigDetection=ENABLED ...
+$ java -javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar=classSigDetection=ENABLED ...
 ```
 
 The detection is done by using combination of several anchors (see above) 
@@ -72,7 +72,7 @@ The logs include the following information:
 The logs can optionally be stored in files in a specified directory. 
 
 ```
-$ java -javaagent:path/to/log4j-jndi-be-gone-1.0.0-standalone.jar=logDir=/tmp/my/logs/ ...
+$ java -javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar=logDir=/tmp/my/logs/ ...
 ```
 
 The files are created per jvm process, and contain the JVM PID in the name.
