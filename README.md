@@ -25,6 +25,13 @@ It does three things:
    but there is a known benign class in some library whose name and the signature accidentally match the `JndiLookup` class signature described above,
    and we don't want that class to be blocked.
 
+# Building
+
+```shell
+./gradlew
+```
+
+The built JAR files are located in the `$PROJECT_HOME/build/libs/` directory.
 
 # Usage
 
@@ -89,13 +96,6 @@ The agent can take the following options:
 |**classPattern**       | regular expression        | org\\.apache\\.logging\\.log4j\\.core\\.lookup\\.JndiLookup | Fully qualified class names to block                                                                                         |
 |**excludeClassPattern**| regular expression        | _(empty)_                                                   | Fully qualified class names that should never be blocked                                                                     |
 |**classSigDetection**  | ENABLED DISABLED LOG_ONLY | DISABLED                                                    | Should the `JndiLookup` detection be attempted by examining the class signature **(required for shaded JARs support)** |
-| |                           |                                                             |
-# Obtaining log4j-jndi-be-gone
-
-You can build the JAR with `./gradlew` (`build/libs/log4j-jndi-be-gone-1.0.1-absa(-standalone).jar`)
-or get it from the [releases page](https://github.com/AbsaOSS/log4j-jndi-be-gone/releases).
-
-The output JAR file is located in the `$PROJECT_HOME/build/libs/` directory.
 
 # Compatibility
 
