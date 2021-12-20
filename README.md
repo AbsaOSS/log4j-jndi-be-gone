@@ -48,7 +48,7 @@ The agent could also be enabled for all Java processes system-wide. For example,
 
 ```shell
 #!/bin/bash 
-$(dirname "$0")/java.original "--javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar" "$@"
+$(dirname "$0")/java.original "-javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar" "$@"
 ```
 
 all new Java processes will automatically be guarded by the agent.  
