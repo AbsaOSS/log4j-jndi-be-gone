@@ -44,14 +44,16 @@ Add `-javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar` to your `j
 $ java -javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar -jar path/to/some.jar
 ```
 
-The agent could also be enabled for all Java processes system-wide. For example, by replacing the `java` binary with the following script: 
+The agent could also be enabled for all Java processes system-wide for all Java process executed on the host,
+by setting up the `JAVA_TOOL_OPTIONS` environment variable.
+
+For example: 
 
 ```shell
-#!/bin/bash 
-$(dirname "$0")/java.original "-javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar" "$@"
+echo "export JAVA_TOOL_OPTIONS=-javaagent:/opt/log4j-jndi-be-gone/log4j-jndi-be-gone-1.0.1-absa-standalone.jar=classSigDetection=ENABLED" > /etc/profile.d/log4j-jndi-be-gone.sh
 ```
 
-all new Java processes will automatically be guarded by the agent.  
+All new Java processes will automatically be guarded by the agent. (The connected users have to relogin).  
 
 ### Shaded JARs
 
