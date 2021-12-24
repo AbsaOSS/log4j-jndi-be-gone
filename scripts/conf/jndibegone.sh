@@ -1,1 +1,1 @@
-_JAVA_OPTIONS=-javaagent:/opt/jndibegone/${deliverable}; export _JAVA_OPTIONS
+JAVA_TOOL_OPTIONS=-javaagent:/opt/jndibegone/${deliverable}=${agentOptions}; export JAVA_TOOL_OPTIONS

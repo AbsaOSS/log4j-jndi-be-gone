@@ -1,1 +1,1 @@
-/bin/systemctl unset-environment _JAVA_OPTIONS
+/bin/systemctl unset-environment JAVA_TOOL_OPTIONS

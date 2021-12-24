@@ -112,6 +112,9 @@ publishing {
 
 project.ext { 
 	packageName = "jndibegone"
+  logDir = "/var/log/${packageName}"
+  classSigMode = "ENABLED"
+  agentOptions = "logDir=${logDir},classSigDetection=${classSigMode}"
 }
 
 assert project.ext.packageName == "jndibegone"
@@ -136,6 +139,8 @@ task simpleRpm (type: Rpm) {
   postInstall file('scripts/rpm/postinstall.sh')
   postUninstall file('scripts/rpm/postremove.sh')
 
+  directory(project.ext.logDir, 0777)
+
   from(jar.outputs.files) {
     addParentDirs = false
     into '/opt/jndibegone'
@@ -153,13 +158,13 @@ task simpleRpm (type: Rpm) {
   from('scripts/conf/jndibegone.sh') {
     addParentDirs = false
     into '/etc/profile.d'
-    expand(deliverable: "${project.ext.deliverable}")
+    expand(deliverable: "${project.ext.deliverable}", agentOptions: "${project.ext.agentOptions}")
   }
 
   from('scripts/conf/jndibegone.conf') {
     addParentDirs = false
     into '/etc/systemd/system/system.conf.d'
-    expand(deliverable: "${project.ext.deliverable}")
+    expand(deliverable: "${project.ext.deliverable}", agentOptions: "${project.ext.agentOptions}")
   }
   
 }
@@ -183,6 +188,8 @@ task shadowRpm (type: Rpm) {
   postInstall file('scripts/rpm/postinstall.sh')
   postUninstall file('scripts/rpm/postremove.sh')
 
+  directory(project.ext.logDir, 0777)
+
   from(shadowJar.outputs.files) {
     addParentDirs = false
     into '/opt/jndibegone'
@@ -200,13 +207,13 @@ task shadowRpm (type: Rpm) {
   from('scripts/conf/jndibegone.sh') {
     addParentDirs = false
     into '/etc/profile.d'
-    expand(deliverable: "${project.ext.deliverable}")
+    expand(deliverable: "${project.ext.deliverable}", agentOptions: "${project.ext.agentOptions}")
   }
 
   from('scripts/conf/jndibegone.conf') {
     addParentDirs = false
     into '/etc/systemd/system/system.conf.d'
-    expand(deliverable: "${project.ext.deliverable}")
+    expand(deliverable: "${project.ext.deliverable}", agentOptions: "${project.ext.agentOptions}")
   }
 }
 

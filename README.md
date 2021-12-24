@@ -27,13 +27,30 @@ It does three things:
 
 # Building
 
+### JAR
 ```shell
 ./gradlew
 ```
 
 The built JAR files are located in the `$PROJECT_HOME/build/libs/` directory.
 
+### RPM
+
+```shell
+# Standalone (suitable for most cases)
+./gradlew shadowRpm
+````
+or
+```shell
+# No dependencies (see #Caveats section below)
+./gradlew simpleRpm
+```
+
+The built RPM files are located in the `$PROJECT_HOME/build/distributions/` directory.
+
 # Usage
+
+### JAR
 
 Add `-javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar` to your `java` commands.
 
@@ -44,18 +61,26 @@ Add `-javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar` to your `j
 $ java -javaagent:path/to/log4j-jndi-be-gone-1.0.1-absa-standalone.jar -jar path/to/some.jar
 ```
 
-The agent could also be enabled for all Java processes system-wide for all Java process executed on the host,
-by setting up the `JAVA_TOOL_OPTIONS` environment variable.
+### System-wide
+The agent could also be enabled system-wide for all Java process executed on the host.
 
-For example: 
-
+This can be done manually
 ```shell
 echo "export JAVA_TOOL_OPTIONS=-javaagent:/opt/log4j-jndi-be-gone/log4j-jndi-be-gone-1.0.1-absa-standalone.jar=classSigDetection=ENABLED" > /etc/profile.d/log4j-jndi-be-gone.sh
 ```
 
-All new Java processes will automatically be guarded by the agent. (The connected users have to relogin).  
+or by installing an RPM package
 
-### Shaded JARs
+```shell
+sudo yum install jndibegone-standalone-1.0.1~absa-1.noarch.rpm
+```
+
+All new Java processes will automatically be guarded by the agent. (The connected users have to relogin).
+
+**Note**: When installing an RPM package the `classSigDetection` option is enabled by default,
+and the log directory is `/var/log/jndibegone/`. The agent options can be customized in the `/etc/profile.d/jndibegone.sh`
+
+### Shaded log4j2 support
 
 Detection of *shaded log4j* is disabled by default, but it can be enabled like this:
 
@@ -67,7 +92,7 @@ The detection is done by using combination of several anchors (see above)
 that are present in all versions of `JndiLookup` class affected by CVE-2021-44228 (2.0-beta9 to 2.14.1)
 
 
-### Logging
+### Agent logging
 
 **Note**: the agent **do not** use log4j for logging.
 
