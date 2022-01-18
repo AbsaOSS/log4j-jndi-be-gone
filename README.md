@@ -78,7 +78,7 @@ sudo yum install jndibegone-standalone-1.0.1~absa-1.noarch.rpm
 All new Java processes will automatically be guarded by the agent. (The connected users have to relogin).
 
 **Note**: When installing an RPM package the `classSigDetection` option is enabled by default,
-and the log directory is `/var/log/jndibegone/`. The agent options can be customized in the `/etc/profile.d/jndibegone.sh`
+and the log directory is `/tmp/jndibegone/`. The agent options can be customized in the `/etc/profile.d/jndibegone.sh`
 
 ### Shaded log4j2 support
 

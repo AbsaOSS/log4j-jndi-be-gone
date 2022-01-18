@@ -112,7 +112,7 @@ publishing {
 
 project.ext { 
 	packageName = "jndibegone"
-  logDir = "/var/log/${packageName}"
+  logDir = "/tmp/${packageName}"
   classSigMode = "ENABLED"
   agentOptions = "logDir=${logDir},classSigDetection=${classSigMode}"
 }
